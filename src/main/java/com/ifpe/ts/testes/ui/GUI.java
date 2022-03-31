@@ -69,7 +69,7 @@ public class GUI extends JFrame{
 		setJMenuBar(barraMenu);
 
 		setBackground(Color.WHITE);
-		setContentPane(new JLabel(new ImageIcon(ImageIO.read(new URL("https://www.ifpe.edu.br/campus/barreiros/noticias/atualizada-lista-de-candidatos-ao-consup/ifpe.png/@@images/ac082237-50ce-49d0-81f2-d90c6664cf71.png")))));
+		//setContentPane(new JLabel(new ImageIcon(ImageIO.read(new URL("https://www.ifpe.edu.br/campus/barreiros/noticias/atualizada-lista-de-candidatos-ao-consup/ifpe.png/@@images/ac082237-50ce-49d0-81f2-d90c6664cf71.png")))));
 
 		itemMenuCadastro.addActionListener((ActionEvent e) -> {
 			JPanel jPanel = new JPanel();
@@ -114,7 +114,7 @@ public class GUI extends JFrame{
 					registro.adicionar(p);
 					txtNomePessoa.setText("");
 					txtIdadePessoa.setText("");
-					JOptionPane.showMessageDialog(jPanel, "Inserção realizada com sucesso!", "Cadastro IFPE", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(jPanel, "Inserï¿½ï¿½o realizada com sucesso!", "Cadastro IFPE", JOptionPane.INFORMATION_MESSAGE);
 
 				} else {
 					JOptionPane.showMessageDialog(jPanel, "Verifique os campos a serem preenchidos", "Cadastro IFPE", JOptionPane.ERROR_MESSAGE);
@@ -125,7 +125,7 @@ public class GUI extends JFrame{
 				String nome = JOptionPane.showInputDialog(jPanel, "Informe o nome a ser removido", "Cadastro IFPE", JOptionPane.QUESTION_MESSAGE);
 				if(!"".equals(nome)) {
 					if(registro.remover(nome)) { // if(true) { -> achou o nome que deseja remover
-						JOptionPane.showMessageDialog(jPanel, "Remoção realizada com sucesso!", "Cadastro IFPE", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(jPanel, "Remoï¿½ï¿½o realizada com sucesso!", "Cadastro IFPE", JOptionPane.INFORMATION_MESSAGE);
 					} else { //nÃ£o achou no cadastro de pessoas o nome informado
 						JOptionPane.showMessageDialog(jPanel, "Pessoa nÃ£o encontrada no registro", "Cadastro IFPE", JOptionPane.ERROR_MESSAGE);
 					}
