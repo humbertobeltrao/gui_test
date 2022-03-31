@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.ifpe.ts.testes.integracao.RegistroTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.436 s <<< FAILURE! - in com.ifpe.ts.testes.integracao.RegistroTest
+com.ifpe.ts.testes.integracao.RegistroTest.encontraValorTest  Time elapsed: 0.388 s  <<< FAILURE!
+java.lang.AssertionError
+	at com.ifpe.ts.testes.integracao.RegistroTest.encontraValorTest(RegistroTest.java:49)
+

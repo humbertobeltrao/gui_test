@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GUI.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">integracao</a> &gt; <a href="index.source.html" class="el_package">com.ifpe.ts.testes.integracao</a> &gt; <span class="el_source">GUI.java</span></div><h1>GUI.java</h1><pre class="source lang-java linenums">package com.ifpe.ts.testes.integracao;
+
+
+	
+	
+	import java.awt.Color;
+	import java.awt.event.ActionEvent;
+	import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.logging.Level;
+	import java.util.logging.Logger;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+	import javax.swing.JButton;
+	import javax.swing.JFrame;
+	import javax.swing.JLabel;
+	import javax.swing.JMenu;
+	import javax.swing.JMenuBar;
+	import javax.swing.JMenuItem;
+	import javax.swing.JOptionPane;
+	import javax.swing.JPanel;
+	import javax.swing.JTextField;
+	import javax.swing.SwingConstants;
+
+	/**
+	 *
+	 * @author Humberto
+	 */
+<span class="nc" id="L34">	public class GUI {</span>
+	    
+	    
+	    public static void main(String[] args) throws MalformedURLException, IOException {
+	       
+<span class="nc" id="L39">	        RegistroPessoa registro = new RegistroPessoa();</span>
+	        
+	        
+<span class="nc" id="L42">	        JFrame jFrame = new JFrame(&quot;Aula Testes Integra��o&quot;);</span>
+<span class="nc" id="L43">	        jFrame.setBounds(0, 0, 500, 400);</span>
+<span class="nc" id="L44">	        jFrame.setLocationRelativeTo(null);</span>
+	        
+	        
+<span class="nc" id="L47">	        JMenuBar barraMenu = new JMenuBar();</span>
+	        
+	        //Menu do aluno
+<span class="nc" id="L50">	        JMenu menuCadastro = new JMenu(&quot;Pessoa&quot;);</span>
+<span class="nc" id="L51">	        JMenuItem itemMenuCadastro = new JMenuItem(&quot;Cadastrar&quot;);</span>
+<span class="nc" id="L52">	        menuCadastro.add(itemMenuCadastro);</span>
+	        
+<span class="nc" id="L54">	        barraMenu.add(menuCadastro);</span>
+	        
+<span class="nc" id="L56">	        jFrame.setJMenuBar(barraMenu);</span>
+	        
+<span class="nc" id="L58">	        jFrame.setBackground(Color.WHITE);</span>
+<span class="nc" id="L59">	        jFrame.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new URL(&quot;https://www.ifpe.edu.br/campus/barreiros/noticias/atualizada-lista-de-candidatos-ao-consup/ifpe.png/@@images/ac082237-50ce-49d0-81f2-d90c6664cf71.png&quot;)))));</span>
+	        
+<span class="nc" id="L61">	        itemMenuCadastro.addActionListener((ActionEvent e) -&gt; {</span>
+<span class="nc" id="L62">	            JPanel jPanel = new JPanel();</span>
+<span class="nc" id="L63">	            JLabel lblNomePessoa = new JLabel(&quot;Nome da Pessoa: &quot;, SwingConstants.CENTER);</span>
+<span class="nc" id="L64">	            JTextField txtNomePessoa = new JTextField(&quot;&quot;, 30);</span>
+<span class="nc" id="L65">	            JLabel lblIdadePessoa = new JLabel(&quot;Idade da Pessoa: &quot;, SwingConstants.CENTER);</span>
+<span class="nc" id="L66">	            JTextField txtIdadePessoa = new JTextField(&quot;&quot;, 30);</span>
+	            //JButton btnAdd = new JButton(&quot;Adicionar&quot;);
+<span class="nc" id="L68">	            JButton btnAdicionar = new JButton(&quot;Adicionar&quot;);</span>
+<span class="nc" id="L69">	            JButton btnAdicionarBd = new JButton(&quot;Adicionar BD&quot;);</span>
+<span class="nc" id="L70">	            JButton btnRemover = new JButton(&quot;Remover&quot;);</span>
+<span class="nc" id="L71">	            JButton btnListar = new JButton(&quot;Listar&quot;);</span>
+<span class="nc" id="L72">	            JButton btnArquivo = new JButton(&quot;Criar arquivo&quot;);</span>
+<span class="nc" id="L73">	            jPanel.add(lblNomePessoa);</span>
+<span class="nc" id="L74">	            jPanel.add(txtNomePessoa);</span>
+<span class="nc" id="L75">	            jPanel.add(lblIdadePessoa);</span>
+<span class="nc" id="L76">	            jPanel.add(txtIdadePessoa);</span>
+	            
+<span class="nc" id="L78">	            jPanel.add(btnAdicionar);</span>
+<span class="nc" id="L79">	            jPanel.add(btnRemover);</span>
+<span class="nc" id="L80">	            jPanel.add(btnListar);</span>
+<span class="nc" id="L81">	            jPanel.add(btnArquivo);</span>
+<span class="nc" id="L82">	            jPanel.add(btnAdicionarBd);</span>
+	            //clique no botão Adicionar
+<span class="nc" id="L84">	            btnAdicionar.addActionListener((ActionEvent e1) -&gt; {</span>
+<span class="nc bnc" id="L85" title="All 4 branches missed.">	                if(!&quot;&quot;.equals(txtNomePessoa.getText()) &amp;&amp; !&quot;&quot;.equals(txtIdadePessoa.getText())) {</span>
+<span class="nc" id="L86">	                    Pessoa p = new Pessoa(txtNomePessoa.getText(), Integer.parseInt(txtIdadePessoa.getText()));</span>
+<span class="nc" id="L87">	                    registro.adicionar(p);</span>
+<span class="nc" id="L88">	                    txtNomePessoa.setText(&quot;&quot;);</span>
+<span class="nc" id="L89">	                    txtIdadePessoa.setText(&quot;&quot;);</span>
+<span class="nc" id="L90">	                    JOptionPane.showMessageDialog(jPanel, &quot;Inser��o realizada com sucesso!&quot;, &quot;Cadastro IFPE&quot;, JOptionPane.INFORMATION_MESSAGE);</span>
+	                    
+<span class="nc" id="L92">	                } else {</span>
+<span class="nc" id="L93">	                    JOptionPane.showMessageDialog(jPanel, &quot;Verifique os campos a serem preenchidos&quot;, &quot;Cadastro IFPE&quot;, JOptionPane.ERROR_MESSAGE);</span>
+	                }
+<span class="nc" id="L95">	            });</span>
+	            //clique no botão de Remover
+<span class="nc" id="L97">	            btnRemover.addActionListener((ActionEvent e1) -&gt; {</span>
+<span class="nc" id="L98">	               String nome = JOptionPane.showInputDialog(jPanel, &quot;Informe o nome a ser removido&quot;, &quot;Cadastro IFPE&quot;, JOptionPane.QUESTION_MESSAGE);</span>
+<span class="nc bnc" id="L99" title="All 2 branches missed.">	               if(!&quot;&quot;.equals(nome)) {</span>
+<span class="nc bnc" id="L100" title="All 2 branches missed.">	                   if(registro.remover(nome)) { // if(true) { -&gt; achou o nome que deseja remover</span>
+<span class="nc" id="L101">	                        JOptionPane.showMessageDialog(jPanel, &quot;Remo��o realizada com sucesso!&quot;, &quot;Cadastro IFPE&quot;, JOptionPane.INFORMATION_MESSAGE);</span>
+<span class="nc" id="L102">	                   } else { //não achou no cadastro de pessoas o nome informado</span>
+<span class="nc" id="L103">	                       JOptionPane.showMessageDialog(jPanel, &quot;Pessoa não encontrada no registro&quot;, &quot;Cadastro IFPE&quot;, JOptionPane.ERROR_MESSAGE);</span>
+	                   }
+<span class="nc" id="L105">	               } else { //não passou nome pra remover</span>
+<span class="nc" id="L106">	                   JOptionPane.showMessageDialog(jPanel, &quot;Você precisa informar o nome a ser removido&quot;, &quot;Cadastro IFPE&quot;, JOptionPane.ERROR_MESSAGE);</span>
+	               }
+<span class="nc" id="L108">	            });</span>
+	            
+	            //clique no botão Listar
+<span class="nc" id="L111">	            btnListar.addActionListener((ActionEvent e1) -&gt; {</span>
+	                //JOptionPane.showMessageDialog(jPanel, registro.listar(), &quot;Cadastro IFPE&quot;, JOptionPane.INFORMATION_MESSAGE);
+<span class="nc" id="L113">	                Conexao con = new Conexao();</span>
+	                try {
+<span class="nc" id="L115">	                    con.abrirConexao();</span>
+<span class="nc" id="L116">	                    Statement stmt = (Statement) con.getCon().createStatement();</span>
+	                    
+<span class="nc" id="L118">	                    String query = &quot;SELECT * FROM Pessoa;&quot;;</span>
+<span class="nc" id="L119">	                    ResultSet resultSet = stmt.executeQuery(query);</span>
+<span class="nc" id="L120">	                    String nomes = &quot;&quot;;</span>
+<span class="nc bnc" id="L121" title="All 2 branches missed.">	                    while(resultSet.next()) {</span>
+<span class="nc" id="L122">	                    	nomes += resultSet.getString(&quot;nome&quot;) + &quot;\n&quot;;</span>
+	                    }
+<span class="nc" id="L124">	                    JOptionPane.showMessageDialog(jPanel, nomes, &quot;Cadastro IFPE&quot;, JOptionPane.INFORMATION_MESSAGE);</span>
+<span class="nc" id="L125">	                    con.fecharConexao();</span>
+	                    
+<span class="nc" id="L127">	                } catch (Exception ex) {</span>
+<span class="nc" id="L128">	                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);</span>
+	                }
+	                
+	                
+<span class="nc" id="L132">	            });</span>
+	            
+<span class="nc" id="L134">	            btnArquivo.addActionListener((ActionEvent e1) -&gt; {</span>
+<span class="nc" id="L135">	                registro.criarArquivo();</span>
+<span class="nc" id="L136">	                JOptionPane.showMessageDialog(jPanel, &quot;Arquivo criado com sucesso.&quot;, &quot;Cadastro IFPE&quot;, JOptionPane.INFORMATION_MESSAGE);</span>
+<span class="nc" id="L137">	            });</span>
+	            
+<span class="nc" id="L139">	            btnAdicionarBd.addActionListener((ActionEvent e1) -&gt; {</span>
+<span class="nc" id="L140">	                Conexao con = new Conexao();</span>
+	                try {
+<span class="nc" id="L142">	                    con.abrirConexao();</span>
+<span class="nc" id="L143">	                    Statement stmt = (Statement) con.getCon().createStatement();</span>
+	                    
+<span class="nc" id="L145">	                    String query = &quot;INSERT INTO Pessoa (nome, idade) VALUES('&quot;+txtNomePessoa.getText()+&quot;','&quot;</span>
+<span class="nc" id="L146">	                            +Integer.parseInt(txtIdadePessoa.getText())+&quot;');&quot;;</span>
+<span class="nc" id="L147">	                    stmt.executeUpdate(query);</span>
+<span class="nc" id="L148">	                    con.fecharConexao();</span>
+<span class="nc" id="L149">	                    txtNomePessoa.setText(&quot;&quot;);</span>
+<span class="nc" id="L150">	                    txtIdadePessoa.setText(&quot;&quot;);</span>
+<span class="nc" id="L151">	                    JOptionPane.showMessageDialog(jPanel, &quot;Registro inserido com sucesso.&quot;, &quot;Cadastro IFPE&quot;, JOptionPane.INFORMATION_MESSAGE);</span>
+	                    
+<span class="nc" id="L153">	                } catch (Exception ex) {</span>
+<span class="nc" id="L154">	                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);</span>
+	                }
+	                
+<span class="nc" id="L157">	            });</span>
+	            //jFrame.setContentPane(textoAluno);
+<span class="nc" id="L159">	            jFrame.setContentPane(jPanel); //alterar o painel</span>
+<span class="nc" id="L160">	            jFrame.validate(); //atualizar a tela</span>
+<span class="nc" id="L161">	        });</span>
+	        
+	           
+<span class="nc" id="L164">	         jFrame.setVisible(true);</span>
+<span class="nc" id="L165">	        jFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
+	        
+	        
+<span class="nc" id="L168">	    }</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
