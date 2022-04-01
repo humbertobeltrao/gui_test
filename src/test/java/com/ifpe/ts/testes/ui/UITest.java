@@ -61,7 +61,7 @@ public class UITest{
 	}
 	
 	@Test
-	public void clickMenuItem() {
+	public void clickBtnListar() {
 		//window.show();
 		JMenuItemFixture menuItem = window.menuItemWithPath("Pessoa", "Cadastrar");
 		menuItem.click();
