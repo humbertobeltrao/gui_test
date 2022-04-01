@@ -69,7 +69,7 @@ public class GUI extends JFrame{
 		setJMenuBar(barraMenu);
 
 		setBackground(Color.WHITE);
-		//setContentPane(new JLabel(new ImageIcon(ImageIO.read(new URL("https://www.ifpe.edu.br/campus/barreiros/noticias/atualizada-lista-de-candidatos-ao-consup/ifpe.png/@@images/ac082237-50ce-49d0-81f2-d90c6664cf71.png")))));
+		setContentPane(new JLabel(new ImageIcon(ImageIO.read(new URL("https://www.educabras.com/media/faculdades/image/ifpe.png")))));
 
 		itemMenuCadastro.addActionListener((ActionEvent e) -> {
 			JPanel jPanel = new JPanel();
